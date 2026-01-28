@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "incunest-sim": {
+      "command": "node",
+      "args": ["mcp/server.js"],
+      "description": "IncuNest Simulator MCP Server",
+      "metadata": {
+        "name": "IncuNest Simulator",
+        "version": "1.0.0",
+        "author": "Medical Open World",
+        "license": "SEE LICENSE IN LICENSE"
+      }
+    }
+  }
+}

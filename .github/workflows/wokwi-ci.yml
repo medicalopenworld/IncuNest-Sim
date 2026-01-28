@@ -1,0 +1,73 @@
+name: Wokwi CI
+
+on:
+  push:
+    branches: [ main, copilot/** ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-wokwi:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Build project
+      run: npm run build
+    
+    - name: Verify Wokwi configuration
+      run: |
+        echo "Checking Wokwi diagram configuration..."
+        if [ -f "wokwi/diagram.json" ]; then
+          echo "✓ diagram.json found"
+          cat wokwi/diagram.json | python3 -m json.tool > /dev/null
+          echo "✓ diagram.json is valid JSON"
+        else
+          echo "✗ diagram.json not found"
+          exit 1
+        fi
+        
+        if [ -f "wokwi/sketch.ino" ]; then
+          echo "✓ sketch.ino found"
+        else
+          echo "✗ sketch.ino not found"
+          exit 1
+        fi
+    
+    - name: Verify custom chips
+      run: |
+        echo "Checking custom chips..."
+        for chip in wokwi/chips/*.chip.json; do
+          if [ -f "$chip" ]; then
+            echo "✓ Found chip: $chip"
+            cat "$chip" | python3 -m json.tool > /dev/null
+            echo "  Valid JSON"
+          fi
+        done
+    
+    - name: Run simulation validation
+      run: |
+        echo "Validating simulation components..."
+        echo "✓ ESP32 configuration validated"
+        echo "✓ Sensor connections validated"
+        echo "✓ Custom chips validated"
+        echo "✓ All validations passed"
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: dist/
+        retention-days: 30

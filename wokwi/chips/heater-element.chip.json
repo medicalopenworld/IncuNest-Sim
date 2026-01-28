@@ -1,0 +1,27 @@
+{
+  "name": "heater-element",
+  "author": "Medical Open World",
+  "version": "1.0.0",
+  "description": "Custom heater element simulation for IncuNest incubator",
+  "pins": [
+    "VCC",
+    "GND",
+    "CONTROL",
+    "TEMP_FEEDBACK"
+  ],
+  "controls": [
+    {
+      "id": "power",
+      "label": "Heater Power (W)",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "defaultValue": 50
+    }
+  ],
+  "display": {
+    "width": 48,
+    "height": 24
+  }
+}
