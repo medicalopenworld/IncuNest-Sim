@@ -61,6 +61,20 @@
       "top": -48,
       "left": 422.4,
       "attrs": { "color": "green" }
+    },
+    {
+      "type": "chip-heater-element",
+      "id": "heater1",
+      "top": 134.89,
+      "left": 400,
+      "attrs": { "power": "50" }
+    },
+    {
+      "type": "chip-temperature-controller",
+      "id": "temp-ctrl1",
+      "top": 200,
+      "left": 400,
+      "attrs": { "setpoint": "37" }
     }
   ],
   "connections": [
@@ -80,7 +94,15 @@
     [ "oled1:SDA", "esp32:D21", "green", [ "v0" ] ],
     [ "oled1:SCL", "esp32:D22", "yellow", [ "v0" ] ],
     [ "btn1:1.l", "esp32:D5", "green", [ "v0" ] ],
-    [ "btn1:2.l", "esp32:GND.2", "black", [ "v0" ] ]
+    [ "btn1:2.l", "esp32:GND.2", "black", [ "v0" ] ],
+    [ "heater1:VCC", "esp32:3V3", "red", [ "v0" ] ],
+    [ "heater1:GND", "esp32:GND.1", "black", [ "v0" ] ],
+    [ "heater1:CONTROL", "esp32:D2", "orange", [ "v0" ] ],
+    [ "heater1:TEMP_FEEDBACK", "temp-ctrl1:TEMP_IN", "purple", [ "v0" ] ],
+    [ "temp-ctrl1:VCC", "esp32:3V3", "red", [ "v0" ] ],
+    [ "temp-ctrl1:GND", "esp32:GND.1", "black", [ "v0" ] ],
+    [ "temp-ctrl1:HEATER_OUT", "heater1:CONTROL", "yellow", [ "v0" ] ],
+    [ "temp-ctrl1:SETPOINT_IN", "esp32:D25", "cyan", [ "v0" ] ]
   ],
   "dependencies": {}
 }

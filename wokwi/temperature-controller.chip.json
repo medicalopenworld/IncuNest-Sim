@@ -1,0 +1,28 @@
+{
+  "name": "temperature-controller",
+  "author": "Medical Open World",
+  "version": "1.0.0",
+  "description": "Custom temperature controller chip for IncuNest incubator",
+  "pins": [
+    "VCC",
+    "GND",
+    "TEMP_IN",
+    "HEATER_OUT",
+    "SETPOINT_IN"
+  ],
+  "controls": [
+    {
+      "id": "setpoint",
+      "label": "Temperature Setpoint (°C)",
+      "type": "range",
+      "min": 30,
+      "max": 40,
+      "step": 0.5,
+      "defaultValue": 37
+    }
+  ],
+  "display": {
+    "width": 64,
+    "height": 32
+  }
+}
