@@ -97,7 +97,7 @@ The UI displays real-time data:
 
 **[▶️ Run the simulation on Wokwi](https://wokwi.com/projects/454508308570169345)**
 
-![IncuNest Wokwi Simulation](docs/wokwi-screenshot.png)
+![IncuNest Wokwi Simulation](docs/wokwi-screenshot.jpeg)
 
 ### Running Locally
 
