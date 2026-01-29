@@ -91,11 +91,19 @@ The UI displays real-time data:
 
 ## 🔬 Wokwi Simulation
 
-### Running the Simulation
+[![Wokwi Simulation](https://img.shields.io/badge/Wokwi-Simulation-blue?style=for-the-badge&logo=wokwi)](https://wokwi.com/projects/454508308570169345)
 
-1. Open the Wokwi simulator: [https://wokwi.com](https://wokwi.com)
-2. Upload the files from `wokwi/` directory
-3. Click "Start Simulation"
+### Live Simulation
+
+**[▶️ Run the simulation on Wokwi](https://wokwi.com/projects/454508308570169345)**
+
+![IncuNest Wokwi Simulation](docs/wokwi-screenshot.png)
+
+### Running Locally
+
+1. Open the Wokwi simulator: [https://wokwi.com/projects/454508308570169345](https://wokwi.com/projects/454508308570169345)
+2. Click "Start Simulation"
+3. Observe the temperature control in action
 
 ### Hardware Components
 
